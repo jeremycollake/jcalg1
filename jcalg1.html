@@ -1,0 +1,390 @@
+<HTML>
+<p align="center">
+<strong><font size="5">JCALG1 r5.xx<br>
+(c)1999-2001 Jeremy Collake<br>
+<a href="http://www.collakesoftware.com">http://www.CollakeSoftware.com<br>
+</a><a href="mailto:jeremy@collakesoftware.com">support@collakesoftware.com</a></font></strong><font size="5">
+</font>
+<p align="center">&nbsp;</p>
+<HR>
+This software is provided as-is, without warranty of ANY KIND,
+either expressed or implied, including but not limited to the implied
+warranties of merchantability and/or fitness for a particular purpose.
+The author shall NOT be held liable for ANY damage to you, your
+computer, or to anyone or anything else, that may result from its use,
+or misuse. Basically, you use it at YOUR OWN RISK.
+<HR>
+<BR>
+<FONT size=+2>License</FONT><BR>
+This library may be used freely in any and for any application.<br>
+        <br>
+<FONT size=+2>Credits</FONT><BR>
+First of all, I would like to credit Joergen Ibsen, author of apLib, for 
+many suggestions and help with my development of JCALG1. You may notice
+some similarities between the JCALG1 decompressor and that of apLib. The reason for this is because I could not come up with a better encoding scheme than Joergen 
+Ibsen's. Therefore, I give him credit to developing
+much of the encoding scheme that JCALG1 uses. <br>
+<br>
+<FONT size=+2>Synopsis</FONT><BR>
+JCALG1 is a small, open-source, LZSS derived compression library.<BR>
+<UL> <FONT size=+2> Features </FONT>
+	<LI> Coded in 100% 32bit x86 assembly language for maximum performance
+	     and minimum size.
+	<LI> Good compression ratio, typically much better than ZIP's deflate.
+	<LI> Extremely small and fast decompressor.<LI> Adjustable window size to allow for faster compression at the cost of
+	     compression ratio.
+	<LI> Decompression requires no memory, other than the destination buffer.
+	<LI> Easy integration with any application.	
+	<LI> Free!</UL>
+<p>Canterbury Corpus compression results for JCALG1 with window size of 128Kb 
+(c7)::</p>
+<table x:str border="0" cellpadding="0" cellspacing="0" width="549" style="border-collapse:
+ collapse;table-layout:fixed;width:412pt">
+  <tr height="17" style="height:12.75pt">
+    <td style="font-weight: 700; font-family: Arial, sans-serif; text-align: left; color: windowtext; font-size: 10.0pt; font-style: normal; text-decoration: none; vertical-align: bottom; white-space: nowrap; border: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    File</td>
+    <td style="font-weight: 700; font-family: Arial, sans-serif; text-align: right; color: windowtext; font-size: 10.0pt; font-style: normal; text-decoration: none; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: .5pt solid windowtext; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    Original Size</td>
+    <td style="font-weight: 700; font-family: Arial, sans-serif; text-align: right; color: windowtext; font-size: 10.0pt; font-style: normal; text-decoration: none; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: .5pt solid windowtext; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    Compressed Size</td>
+    <td style="font-weight: 700; font-family: Arial, sans-serif; text-align: right; color: windowtext; font-size: 10.0pt; font-style: normal; text-decoration: none; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: .5pt solid windowtext; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    Bits Per Byte</td>
+    <td style="font-weight: 700; font-family: Arial, sans-serif; text-align: right; color: windowtext; font-size: 10.0pt; font-style: normal; text-decoration: none; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: .5pt solid windowtext; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    Weighted</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    bib</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="111261">
+    111,261</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    36594</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="2.6312184862620325" x:fmla="=(D7*8)/C7">
+    2.63</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    book1</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="768771">
+    768,771</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    335310</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="3.4893095603242057" x:fmla="=(D8*8)/C8">
+    3.49</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    book2</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="610856">
+    610,856</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    213402</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="2.7947928808098799" x:fmla="=(D9*8)/C9">
+    2.79</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    geo</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="102400">
+    102,400</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    71022</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="5.5485937500000002" x:fmla="=(D10*8)/C10">
+    5.55</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    news</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="377109">
+    377,109</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    142978</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="3.0331389598232872" x:fmla="=(D11*8)/C11">
+    3.03</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    obj1</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="21504">
+    21,504</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    9982</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="3.7135416666666665" x:fmla="=(D12*8)/C12">
+    3.71</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    obj2</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="246814">
+    246,814</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    77722</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="2.519208796907793" x:fmla="=(D13*8)/C13">
+    2.52</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    paper1</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="53161">
+    53,161</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    20014</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="3.0118319820921351" x:fmla="=(D14*8)/C14">
+    3.01</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    paper2</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="82199">
+    82,199</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    32534</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="3.1663645543133128" x:fmla="=(D15*8)/C15">
+    3.17</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    pic</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="513216">
+    513,216</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    58338</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="0.90937149270482609" x:fmla="=(D16*8)/C16">
+    0.91</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    progc</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="39611">
+    39,611</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    14194</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="2.8666784479058847" x:fmla="=(D17*8)/C17">
+    2.87</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    progl</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="71646">
+    71,646</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    17174</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="1.9176506713563912" x:fmla="=(D18*8)/C18">
+    1.92</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    progp</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="49379">
+    49,379</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    11674</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="1.8913303226067761" x:fmla="=(D19*8)/C19">
+    1.89</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    trans</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="93695">
+    93,695</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num>
+    19486</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="1.6637814184321469" x:fmla="=(D20*8)/C20">
+    1.66</td>
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">&nbsp;</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    TOTAL:</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="3141622" x:fmla="=SUM(C7:C20)">
+    3,141,622</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num x:fmla="=SUM(D7:D20)">
+    1060424</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="2.7969152135860957" x:fmla="=AVERAGE(E7:E20)">
+    2.80</td>
+    <td align="right" style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border-left: medium none; border-right: .5pt solid windowtext; border-top: medium none; border-bottom: .5pt solid windowtext; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num="2.7003223175798996" x:fmla="=(D21*8)/C21">
+    2.70</td>
+  </tr>
+</table>
+<table x:str border="0" cellpadding="0" cellspacing="0" width="549" style="border-collapse:
+ collapse;table-layout:fixed;width:412pt">
+  <colgroup>
+    <col width="64" span="3" style="width:48pt">
+    <col width="119" style="width: 89pt"><col width="126" style="width: 95pt">
+    <col width="112" style="width: 84pt"><col width="101" style="width: 76pt">
+  </colgroup>
+  <![if supportMisalignedColumns]>
+  <tr height="0" style="display:none">
+    <td width="64" style="width: 48pt; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+    <td width="64" style="width: 48pt; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+    <td width="64" style="width: 48pt; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+    <td width="119" style="width: 89pt; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+    <td width="126" style="width: 95pt; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+    <td width="112" style="width: 84pt; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+  </tr>
+  <![endif]>
+</table>
+<table x:str border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse:
+ collapse;table-layout:fixed;width:435pt">
+  <colgroup>
+    <col width="64" span="1" style="width:48pt">
+  </colgroup>
+  <tr height="17" style="height:12.75pt">
+    <td width="64" style="width: 48pt; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td style="color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; white-space: nowrap; border: medium none; padding-left: 1px; padding-right: 1px; padding-top: 1px">
+    </td>
+  </tr>
+  <![if supportMisalignedColumns]>
+  <![endif]>
+</table>
+<p>
+<FONT size=+2> Documentation</FONT> </p>
+<HR>
+This is where I tell you what you need to know, ever-so-briefly ;). I decided to document
+all functions in C, since most people are familar with it. All functions use the STDCALL
+calling convention (parameters pushed onto stack, called function adjusts stack before return).
+<HR>
+<DL>
+<DT><B>DWORD JCALG1_Compress(</B>
+<DD>void *Source,
+<DD>DWORD Length,
+<DD>void *Destination,
+<DD>DWORD WindowSize,
+<DD>AllocFunc *pAlloc,
+<DD>DeAllocFunc *pDealloc,
+<DD>CallbackFunc *pCallback,<DD>BOOLEAN bDisableChecksum);
+</DL>
+ <UL> <B> Parameters</B>
+ <LI>Source is a pointer to the uncompressed data. 
+ <LI>Length is the size of the uncompressed data. 
+ <LI>Destination is a pointer to the destination of the compressed data. This
+  buffer should be at least 4 bytes larger than the uncompressed data size. One
+  can retrieve the minimum needed buffer size by issuing a call to
+  JCALG1_GetNeededBufferSize. 
+ <LI>WindowSize is a nonzero value up to the size of the file. The larger, 
+ the better the compression ratio but the slower the compression. 
+ <LI>pAlloc is a pointer to a memory allocation function. See prototype below.
+ <LI>pDealloc is a pointer to a memory deallocation function. See prototype below.
+ <LI>pCallback is a pointer to a callback function which is called in every
+  iteration of the main compression loop. See protoype below.
+ <LI>bDisableChecksum, if TRUE a checksum for the data is not computed/stored.</UL>
+ <B>Returns:</B> Size of the compressed data, or NULL if the
+ data could not be compressed.&nbsp;<BR><BR>
+ <HR>
+ <DL>
+<DT><b>DWORD</b><B> JCALG1_Decompress_Fast(</B>
+<DD>void *Source,
+<DD>void *Destination);<BR>
+<DT><b>DWORD</b><B> JCALG1_Decompress_Small(</B>
+<DD>void *Source,
+<DD>void *Destination);
+</DL>
+<UL> <B> Parameters </B>
+ <LI>Source is a pointer to the source data.
+ <LI>Destination is a pointer to the destination buffer for the uncompressed
+  data.
+</UL>
+<B> Returns:</B> Size of the uncompressed data or 0 if the block of data is not 
+a valid JCALG1 compressed stream (failed header or checksum tests). As the 
+function names attempt to infer, the 'small' version of this procedure is the 
+one optimized for size while the 'fast' version is the one optimized for speed.<BR><BR>
+<HR>
+<DL><DT><B>DWORD JCALG1_GetUncompressedSizeOfCompressedBlock(</B>
+  <dd>void *pBlock)</dd>
+</DL>
+<UL> <B> Parameters </B>
+ <LI> pBlock is a pointer to a JCALG1 compressed block of memory.
+</UL>
+<B> Returns:</B>  Size of the uncompressed block, in bytes.
+<p>&nbsp;</p>
+<HR>
+<DL><DT><B>DWORD JCALG1_GetNeededBufferSize(</B>
+ <DD>DWORD n Size);
+</DL>
+<UL> <B> Parameters </B>
+ <LI> n Size is size, in bytes, of a block of uncompressed data.
+</UL>
+<B> Returns:</B>  The minimum destination buffer size (currently nSize+4).
+<p>&nbsp;
+<HR>
+<DL><DT><B>void JCALG1_GetInfo(</B>
+  <DD> _JCALG1_Info *JCALG1_Info);
+</DL>
+<UL> <B> Parameters </B>:
+ <LI> JCALG1_Info is a pointer to a _JCALG1_Info structure. 
+</UL>
+<DL><DT>typedef struct __JCALG1_Info {
+	<DD>DWORD MajorRev;
+	<DD>DWORD MinorRev;
+	<DD>DWORD FastDecompressorSize;
+	<DD>DWORD SmallDecompressorSize;
+<DT>} _JCALG1_Info;
+  <dd>&nbsp;</dd>
+</DL>
+<HR>
+<DL><DT><B>BOOL CallbackFunc(</B>
+  <DD> DWORD pCurrentSrc,
+  <DD> DWORD pCurrentDest);
+</DL>
+<UL> <B> Parameters </B>:
+ <LI> pCurrentSrc is the relative offset of the current position in the
+  uncompressed data.
+ <LI> pCurrentDest is the relative offset of the current position in the
+  compressed data.
+     
+</UL>
+<B> Return: </B> FALSE to stop compression, TRUE to continue compression.
+<BR><BR>
+<p>&nbsp;
+<HR>
+<DL><DT><B>void *AllocFunc(</B>
+ <DD>DWORD Size);
+</DL>
+<UL> <B> Parameters </B>
+ <LI> Size is the number of bytes requested.
+</UL>
+<B> Returns:</B> Pointer to allocated memory block.
+<p>&nbsp;</p>
+<HR>
+<DL><DT><B>BOOL DeallocFunc(</B>
+ <DD>void *pMemory)
+</DL>
+<UL> <B> Parameters </B>
+ <LI> pMemory is a pointer to the memory block to be deallocated.
+</UL>
+<B> Returns:</B> FALSE if failure.
+<BR><BR>
+<p><BR></p>
+<p><BR>
+</p>
+</HTML>

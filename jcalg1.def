@@ -1,0 +1,8 @@
+LIBRARY   JCALG1
+EXPORTS   JCALG1_Compress	
+	  JCALG1_Decompress_Small
+	  JCALG1_Decompress_Fast
+	  JCALG1_GetInfo	  
+	  JCALG1_GetUncompressedSizeOfCompressedBlock
+	  JCALG1_GetNeededBufferSize	  
+  

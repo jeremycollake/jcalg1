@@ -1,0 +1,13 @@
+JCALG1 Compression Library
+Copyright (C) 1999-2002 by Jeremy Collake
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+
+This program may be used freely in any applications as long as
+the following two criteria are met:
+        (a). Notify the author of JCALG1's use and in what application.
+        (b). Show notification of JCALG1's usage in your program or
+             program documentation along with a link to the authors
+             webpage.

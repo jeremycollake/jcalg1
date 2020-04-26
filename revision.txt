@@ -1,0 +1,32 @@
+;
+;5.32:  + Fixed a bug when compressing small data streams under certain
+;	  conditions. Thanks to Jeffrey Lim for finding and fixing this.
+;	+ Included C++ decompressor, CompressedData.cpp/h, written by
+;	  Jeffrey Lim.
+;
+;5.21:
+;	+ Added block orientation. Improved compression significantly for
+;	  data that is, at any portion(s), uncompressible. For example,
+;	  JCALG1 can now compress (slightly) some compressed archives (i.e. zip).
+;	+ Jordan Russell contributed delphi interface; see JCALG1.PAS.
+;	+ Updated jcalg1_test.
+;	
+;5.15:
+;	+ Included static link library and import library, for static 
+;	  and dynamic linking, respectively.
+;	+ Fixed stdcall incompatibility with JCALG1_GetInfo and other
+;	  exports.
+;	+ Included C function prototypes.
+;	  
+;5.14:
+;	+ Added functions GetUncompressedSizeOfCompressedBlock 
+;	  and GetNeededBufferSize.
+;	+ Memory allocated by user-defined allocation functions
+;	  no longer needs to be zero initialized.
+;	+ Added word signature, 'JC' at the beginning a compressed
+;	  block, followed by a dword indicating the uncompressed
+;	  size of the block.
+;	+ Jordan Russell added some error handling in cases where
+;	  a given memory block could not be allocated.
+;
+;1.00-5.13: Whoops, I didn't keep a revision history :)	 
