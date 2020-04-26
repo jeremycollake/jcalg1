@@ -1,6 +1,8 @@
 # jcalg1
 JCALG1 compression algorithm (LZSS derivative). Legacy from 1999. x86 assembly.
+
 (c)1999-2003 Jeremy Collake <jeremy@bitsum.com>
+
 LICENSE: MIT
 
 See https://bitsum.com/jcalg1 for more info
